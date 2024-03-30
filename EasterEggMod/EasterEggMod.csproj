@@ -1,28 +1,49 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Configurations>Debug;Release;Release_IL2CPP</Configurations>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="Il2CppInterop.Runtime">
-      <HintPath>E:\Games\Steam\steamapps\common\SynthRiders\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Il2Cppmscorlib">
-      <HintPath>E:\Games\Steam\steamapps\common\SynthRiders\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll</HintPath>
-    </Reference>
-    <Reference Include="MelonLoader">
-      <HintPath>E:\Games\Steam\steamapps\common\SynthRiders\MelonLoader\net6\MelonLoader.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>E:\Games\Steam\steamapps\common\SynthRiders\MelonLoader\Il2CppAssemblies\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>E:\Games\Steam\steamapps\common\SynthRiders\MelonLoader\Il2CppAssemblies\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>E:\Games\Steam\steamapps\common\SynthRiders\MelonLoader\Il2CppAssemblies\UnityEngine.ImageConversionModule.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_IL2CPP|AnyCPU'">
+	  <DefineConstants>$(DefineConstants);IL2CPP</DefineConstants>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<Reference Include="MelonLoader">
+			<HintPath>E:\Games\Steam\steamapps\common\SynthRiders\MelonLoader\net6\MelonLoader.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release_IL2CPP|AnyCPU'">
+		<Reference Include="Il2CppInterop.Runtime">
+			<HintPath>E:\Games\Steam\steamapps\common\SynthRiders\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2Cppmscorlib">
+			<HintPath>E:\Games\Steam\steamapps\common\SynthRiders\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine">
+			<HintPath>E:\Games\Steam\steamapps\common\SynthRiders\MelonLoader\Il2CppAssemblies\UnityEngine.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath>E:\Games\Steam\steamapps\common\SynthRiders\MelonLoader\Il2CppAssemblies\UnityEngine.CoreModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ImageConversionModule">
+			<HintPath>E:\Games\Steam\steamapps\common\SynthRiders\MelonLoader\Il2CppAssemblies\UnityEngine.ImageConversionModule.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)|$(Platform)'!='Release_IL2CPP|AnyCPU'">
+		<Reference Include="UnityEngine">
+			<HintPath>E:\Games\Steam\steamapps\common\SynthRiders\SynthRiders_Data\Managed\UnityEngine.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath>E:\Games\Steam\steamapps\common\SynthRiders\SynthRiders_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.ImageConversionModule">
+			<HintPath>E:\Games\Steam\steamapps\common\SynthRiders\SynthRiders_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 
 </Project>
