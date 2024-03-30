@@ -1,6 +1,8 @@
 # EasterEggMod
 **A simple Synth Riders mod to replace all orbs with easter eggs**
 
+<img src="https://github.com/tommaier123/EasterEggMod/blob/master/preview.jpg" height="320"/>
+
 ## Installation
 * Install Melon Loader
 * Extract the zip to your Mods Folder
